@@ -1,0 +1,521 @@
+/*
+===========================================
+  ENTREPRISE.CSS
+  Page dédiée — PNS Echafaudages
+  À placer dans : css/entreprise.css
+===========================================
+*/
+
+/* =========================================
+   UTILITAIRES COMMUNS
+========================================= */
+.ent-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #4f83d1;
+    background: rgba(79, 131, 209, 0.1);
+    padding: 5px 16px;
+    border-radius: 50px;
+    margin-bottom: 18px;
+}
+
+.ent-accent {
+    color: #4f83d1;
+}
+
+.ent-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(26px, 3.5vw, 40px);
+    font-weight: 700;
+    color: #0d1b3e;
+    line-height: 1.25;
+    margin-bottom: 20px;
+}
+
+.ent-section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 700;
+    color: #0d1b3e;
+    margin-top: 10px;
+}
+
+/* =========================================
+   S1 — INTRO + CARROUSEL
+========================================= */
+.ent-intro-section {
+    padding: 80px 0 60px;
+    background: #ffffff;
+}
+
+.ent-intro-box p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.85;
+    margin-bottom: 16px;
+}
+
+/* --- Carrousel --- */
+.ent-carousel {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+    background: #0d1b3e;
+    aspect-ratio: 4 / 3;
+}
+
+.ent-carousel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.ent-carousel-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    transform: scale(1.04);
+}
+
+.ent-carousel-slide.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.ent-carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Boutons prev/next */
+.ent-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.25s, transform 0.2s;
+}
+
+.ent-carousel-btn:hover {
+    background: rgba(79, 131, 209, 0.75);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.ent-carousel-btn.prev {
+    left: 14px;
+}
+
+.ent-carousel-btn.next {
+    right: 14px;
+}
+
+/* Dots */
+.ent-carousel-dots {
+    position: absolute;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.ent-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.ent-dot.active {
+    background: #ffffff;
+    transform: scale(1.3);
+}
+
+/* Badge certifié */
+.ent-badge {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: #4f83d1;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 6px 20px rgba(79, 131, 209, 0.5);
+    z-index: 10;
+}
+
+.ent-badge i {
+    font-size: 16px;
+}
+
+/* =========================================
+   S2 — STATS
+========================================= */
+.ent-stats-section {
+    background: #0d1b3e;
+    padding: 50px 0;
+}
+
+.ent-stats-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.ent-stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    min-width: 140px;
+}
+
+.ent-stat-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 6vw, 72px);
+    color: #ffffff;
+    line-height: 1;
+    letter-spacing: 0.02em;
+}
+
+.ent-stat-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.55);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-top: 6px;
+}
+
+.ent-stat-divider {
+    width: 1px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.15);
+    flex-shrink: 0;
+}
+
+/* =========================================
+   S3 — SOLUTIONS SUR MESURE
+========================================= */
+.ent-solutions-section {
+    padding: 90px 0;
+    background: #f4f8ff;
+}
+
+.ent-solutions-img-wrap {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.14);
+}
+
+.ent-solutions-img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.ent-solutions-img-wrap:hover .ent-solutions-img {
+    transform: scale(1.04);
+}
+
+.ent-solutions-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 700;
+    color: #0d1b3e;
+    margin-bottom: 24px;
+    line-height: 1.3;
+}
+
+.ent-solutions-box {
+    background: #ffffff;
+    border-left: 4px solid #4f83d1;
+    border-radius: 0 12px 12px 0;
+    padding: 28px 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.ent-solutions-box p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.85;
+    margin-bottom: 14px;
+}
+
+.ent-solutions-box p:last-child {
+    margin-bottom: 0;
+}
+
+/* =========================================
+   S4 — DOMAINES D'ACTIVITÉ
+========================================= */
+.ent-domains-section {
+    padding: 90px 0;
+    background: #ffffff;
+}
+
+.ent-domains-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(20px, 2.8vw, 30px);
+    font-weight: 700;
+    color: #0d1b3e;
+    line-height: 1.35;
+}
+
+.ent-domain-card {
+    background: #ffffff;
+    border: 1px solid #e8f0fb;
+    border-radius: 16px;
+    padding: 32px 26px;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    cursor: default;
+}
+
+.ent-domain-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 55px rgba(79, 131, 209, 0.16);
+    border-color: #4f83d1;
+}
+
+.ent-domain-icon {
+    width: 64px;
+    height: 64px;
+    background: rgba(79, 131, 209, 0.1);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    transition: background 0.3s;
+}
+
+.ent-domain-card:hover .ent-domain-icon {
+    background: #4f83d1;
+}
+
+.ent-domain-icon i {
+    font-size: 28px;
+    color: #4f83d1;
+    transition: color 0.3s;
+}
+
+.ent-domain-card:hover .ent-domain-icon i {
+    color: #ffffff;
+}
+
+.ent-domain-card h5 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0d1b3e;
+    margin-bottom: 12px;
+}
+
+.ent-domain-card p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* =========================================
+   S5 — NOS VALEURS
+========================================= */
+.ent-values-section {
+    padding: 90px 0;
+    background: #f4f8ff;
+}
+
+.ent-value-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 36px 28px;
+    height: 100%;
+    border: 1px solid #e8f0fb;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.ent-value-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 50px rgba(79, 131, 209, 0.15);
+    border-color: #4f83d1;
+}
+
+.ent-value-icon {
+    width: 58px;
+    height: 58px;
+    background: rgba(79, 131, 209, 0.1);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: background 0.3s;
+}
+
+.ent-value-card:hover .ent-value-icon {
+    background: #4f83d1;
+}
+
+.ent-value-icon i {
+    font-size: 26px;
+    color: #4f83d1;
+    transition: color 0.3s;
+}
+
+.ent-value-card:hover .ent-value-icon i {
+    color: #ffffff;
+}
+
+.ent-value-card h5 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0d1b3e;
+    margin-bottom: 10px;
+}
+
+.ent-value-card p {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* =========================================
+   S6 — CTA
+========================================= */
+.ent-cta-section {
+    padding: 60px 0 80px;
+    background: #ffffff;
+}
+
+.ent-cta-box {
+    background: linear-gradient(135deg, #0d1b3e 0%, #1a3a7a 100%);
+    border-radius: 20px;
+    padding: 50px 56px;
+}
+
+.ent-cta-box h3 {
+    color: #ffffff;
+    font-size: clamp(22px, 2.8vw, 30px);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.ent-cta-box p {
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 16px;
+    margin: 0;
+}
+
+.ent-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    background: #4f83d1;
+    color: #ffffff;
+    padding: 15px 32px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 6px 20px rgba(79, 131, 209, 0.4);
+}
+
+.ent-cta-btn:hover {
+    background: #7cb8eb;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(79, 131, 209, 0.5);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media (max-width: 991px) {
+    .ent-intro-section {
+        padding: 55px 0 40px;
+    }
+
+    .ent-solutions-section {
+        padding: 60px 0;
+    }
+
+    .ent-domains-section {
+        padding: 60px 0;
+    }
+
+    .ent-values-section {
+        padding: 60px 0;
+    }
+
+    .ent-cta-box {
+        padding: 36px 28px;
+    }
+
+    .ent-stat-divider {
+        display: none;
+    }
+
+    .ent-stats-grid {
+        gap: 30px 16px;
+    }
+
+    .ent-solutions-img {
+        height: 280px;
+    }
+}
+
+@media (max-width: 767px) {
+    .ent-stats-section {
+        padding: 40px 0;
+    }
+
+    .ent-stat-number {
+        font-size: 48px;
+    }
+
+    .ent-cta-box {
+        padding: 28px 20px;
+    }
+
+    .ent-cta-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
