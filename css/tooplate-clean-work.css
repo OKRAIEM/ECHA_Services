@@ -750,7 +750,7 @@ strong {
   border-radius: var(--border-radius-small);
   object-fit: cover;
   height: 100%;
-  /* max-height: 380px; */
+  max-height: 380px;
 }
 
 .intro-section-2 {
