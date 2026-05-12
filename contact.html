@@ -16,6 +16,8 @@
     <link href="css/bootstrap-icons.css" rel="stylesheet" />
     <link href="css/tooplate-clean-work.css" rel="stylesheet" />
     <link href="css/contact.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>emailjs.init('tdqELwwB5EhlGoiFz');</script>
 </head>
 
 <body>
@@ -172,7 +174,7 @@
                                 <p>Remplissez le formulaire ci-dessous, nous vous recontactons dans les plus brefs délais.</p>
                             </div>
 
-                            <form class="ctt-form" action="#" method="post">
+                            <form class="ctt-form" id="contact-form" novalidate>
 
                                 <div class="row g-3">
                                     <div class="col-md-6 col-12">
@@ -216,7 +218,8 @@
                                             placeholder="Décrivez votre projet : localisation, superficie, type de chantier, délais souhaités..."></textarea>
                                     </div>
                                     <div class="col-12">
-                                        <button type="submit" class="ctt-submit-btn">
+                                        <div id="ctt-feedback" class="ctt-feedback" style="display:none;"></div>
+                                        <button type="submit" class="ctt-submit-btn" id="ctt-submit">
                                             <i class="bi-send me-2"></i>Envoyer ma demande
                                         </button>
                                     </div>
@@ -332,6 +335,66 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/scroll-reveal.js"></script>
+    <script>
+    (function() {
+        var form = document.getElementById('contact-form');
+        var btn = document.getElementById('ctt-submit');
+        var feedback = document.getElementById('ctt-feedback');
+
+        if (!form) return;
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Validation simple
+            var nom = form.querySelector('#ctt-nom').value.trim();
+            var tel = form.querySelector('#ctt-tel').value.trim();
+            var email = form.querySelector('#ctt-email').value.trim();
+            var service = form.querySelector('#ctt-service').value;
+
+            if (!nom || !tel || !email || !service) {
+                showFeedback('Veuillez remplir tous les champs obligatoires (*).', 'error');
+                return;
+            }
+
+            // État chargement
+            btn.disabled = true;
+            btn.innerHTML = '<span class="ctt-spinner"></span> Envoi en cours...';
+            feedback.style.display = 'none';
+
+            // Paramètres envoyés au template EmailJS
+            var params = {
+                from_name:  nom,
+                from_email: email,
+                societe:    form.querySelector('#ctt-societe').value.trim() || 'Non renseignée',
+                telephone:  tel,
+                service:    service,
+                message:    form.querySelector('#ctt-message').value.trim() || 'Aucun message'
+            };
+
+            emailjs.send('service_q79gdav', 'template_595qctd', params)
+                .then(function() {
+                    showFeedback('✅ Votre demande a bien été envoyée ! Nous vous recontacterons sous 24h.', 'success');
+                    form.reset();
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="bi-send me-2"></i>Envoyer ma demande';
+                })
+                .catch(function(err) {
+                    showFeedback('❌ Une erreur est survenue. Veuillez réessayer ou nous appeler directement.', 'error');
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="bi-send me-2"></i>Envoyer ma demande';
+                    console.error('EmailJS error:', err);
+                });
+        });
+
+        function showFeedback(msg, type) {
+            feedback.textContent = msg;
+            feedback.className = 'ctt-feedback ctt-feedback--' + type;
+            feedback.style.display = 'block';
+            feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    })();
+    </script>
 
 </body>
 
