@@ -1,0 +1,314 @@
+/*
+===========================================
+  REALISATIONS.CSS
+  Page Réalisations — ECHA-Services
+===========================================
+*/
+
+/* =======================================
+   BANNER
+======================================= */
+.banner-section {
+    background-image: url('/ImagesPNS/Banner2.jfif');
+    background-repeat: no-repeat;
+    background-position: center 20%;
+    background-size: cover;
+    position: relative; overflow: hidden;
+    min-height: 280px;
+    display: flex; align-items: center; justify-content: center;
+}
+.banner-section::before {
+    content: ''; position: absolute; inset: 0;
+    background: rgba(0,15,45,0.62);
+    pointer-events: none; z-index: 1;
+}
+.banner-section::after {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, #4f83d1, #7cb8eb, transparent);
+    z-index: 2; pointer-events: none;
+}
+.banner-section .section-overlay { display: none; }
+.banner-section .banner-title-wrap {
+    position: relative; z-index: 3;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 115px 20px 40px;
+    width: 100%; overflow: visible;
+    white-space: normal; margin-top: 0;
+}
+.banner-section .banner-slide-title {
+    display: block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 7.5vw, 82px);
+    font-weight: 400; color: #fff;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    line-height: 1; margin: 0; animation: none;
+}
+.banner-underline {
+    display: block; height: 4px; width: 100%; max-width: 320px;
+    margin: 12px auto 0;
+    background: linear-gradient(90deg, transparent 0%, #4f83d1 30%, #7cb8eb 70%, transparent 100%);
+    border-radius: 2px;
+}
+.banner-breadcrumb {
+    font-size: 13px; color: rgba(255,255,255,0.65);
+    margin-top: 12px; font-style: italic; letter-spacing: 0.03em;
+}
+@media (max-width: 991px) {
+    .banner-section { min-height: 260px; }
+    .banner-section .banner-title-wrap { padding: 110px 20px 40px; }
+}
+@media (max-width: 767px) {
+    .banner-section { min-height: 240px; }
+    .banner-section .banner-title-wrap { padding: 100px 16px 36px; }
+    .banner-section .banner-slide-title { font-size: clamp(36px, 10vw, 52px); }
+    .banner-underline { max-width: 200px; }
+}
+
+/* =======================================
+   UTILITAIRES
+======================================= */
+.rl-label {
+    display: inline-block; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: #4f83d1; background: rgba(79,131,209,0.1);
+    padding: 5px 16px; border-radius: 50px; margin-bottom: 18px;
+}
+.rl-accent { color: #4f83d1; }
+
+/* =======================================
+   INTRO
+======================================= */
+.rl-intro-section {
+    padding: 70px 0 60px;
+    background: #ffffff;
+}
+.rl-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(26px, 3.5vw, 40px);
+    font-weight: 700; color: #0d1b3e;
+    line-height: 1.25; margin-bottom: 20px;
+}
+.rl-text {
+    font-size: 15px; color: #555;
+    line-height: 1.85; text-align: justify; margin: 0;
+}
+.rl-stats-row {
+    display: flex; align-items: center;
+    justify-content: space-around;
+    background: #0d1b3e; border-radius: 18px;
+    padding: 32px 24px; gap: 8px;
+}
+.rl-stat {
+    display: flex; flex-direction: column;
+    align-items: center; text-align: center; flex: 1;
+}
+.rl-stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(28px, 4vw, 42px);
+    color: #ffffff; line-height: 1; letter-spacing: 0.04em;
+}
+.rl-stat-lbl {
+    font-size: 11px; color: rgba(255,255,255,0.5);
+    font-weight: 500; text-transform: uppercase;
+    letter-spacing: 0.1em; margin-top: 6px;
+}
+.rl-stat-sep {
+    width: 1px; height: 50px;
+    background: rgba(255,255,255,0.12); flex-shrink: 0;
+}
+
+/* =======================================
+   FILTRES
+======================================= */
+.rl-gallery-section {
+    padding: 60px 0 80px;
+    background: #f4f8ff;
+}
+.rl-filters {
+    display: flex; flex-wrap: wrap;
+    gap: 10px; margin-bottom: 44px;
+    justify-content: center;
+}
+.rl-filter-btn {
+    padding: 9px 22px;
+    border: 1.5px solid #dce8f8;
+    border-radius: 50px;
+    background: #ffffff;
+    color: #555; font-size: 13px; font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+.rl-filter-btn:hover {
+    border-color: #4f83d1; color: #4f83d1;
+}
+.rl-filter-btn.active {
+    background: #0d1b3e; border-color: #0d1b3e;
+    color: #ffffff; font-weight: 600;
+}
+
+/* =======================================
+   GRILLE DE CARTES
+======================================= */
+.rl-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+/* ---- Carte ---- */
+.rl-card {
+    border-radius: 16px; overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.rl-card:hover { transform: translateY(-6px); }
+.rl-card.hidden { display: none; }
+
+.rl-card-inner {
+    position: relative; border-radius: 16px; overflow: hidden;
+    aspect-ratio: 4 / 3;
+    box-shadow: 0 8px 30px rgba(13,27,62,0.12);
+}
+
+/* Image */
+.rl-card-img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    transition: transform 0.5s ease;
+}
+.rl-card:hover .rl-card-img,
+.rl-card.revealed .rl-card-img {
+    transform: scale(1.05);
+}
+
+/* Hint (icône tap visible par défaut) */
+.rl-card-hint {
+    position: absolute; bottom: 14px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; align-items: center; gap: 6px;
+    background: rgba(13,27,62,0.75);
+    backdrop-filter: blur(6px);
+    color: rgba(255,255,255,0.85);
+    font-size: 12px; font-weight: 500;
+    padding: 6px 14px; border-radius: 20px;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 3;
+}
+.rl-card-hint i { font-size: 14px; color: #7cb8eb; }
+.rl-card.revealed .rl-card-hint { opacity: 0; }
+
+/* Overlay (révélé au clic) */
+.rl-card-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(8, 18, 45, 0.97) 0%,
+        rgba(8, 18, 45, 0.85) 45%,
+        rgba(8, 18, 45, 0.25) 100%
+    );
+    display: flex; flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: 2;
+}
+.rl-card.revealed .rl-card-overlay {
+    opacity: 1; transform: translateY(0);
+}
+
+/* Top de l'overlay : tag + année */
+.rl-card-top {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.rl-card-tag {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 4px;
+}
+.rl-card-tag.batiment  { background: #4f83d1; color: #fff; }
+.rl-card-tag.industrie { background: #e07b39; color: #fff; }
+.rl-card-tag.monument  { background: #7c5cbf; color: #fff; }
+.rl-card-tag.renovation { background: #2dab7f; color: #fff; }
+
+.rl-card-year {
+    font-size: 12px; color: rgba(255,255,255,0.5);
+    font-weight: 600; letter-spacing: 0.1em;
+}
+
+/* Corps de l'overlay */
+.rl-card-body { display: flex; flex-direction: column; gap: 6px; }
+
+.rl-card-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px; font-weight: 700;
+    color: #ffffff; margin: 0; line-height: 1.2;
+}
+.rl-card-location {
+    font-size: 12px; color: #7cb8eb;
+    font-weight: 500; display: flex; align-items: center; gap: 5px;
+}
+.rl-card-location i { font-size: 11px; }
+.rl-card-desc {
+    font-size: 13px; color: rgba(255,255,255,0.72);
+    line-height: 1.65; margin: 0;
+}
+
+/* =======================================
+   CTA
+======================================= */
+.rl-cta-section {
+    padding: 60px 0 80px;
+    background: #ffffff;
+}
+.rl-cta-box {
+    background: linear-gradient(135deg, #0d1b3e 0%, #1a3a7a 100%);
+    border-radius: 20px; padding: 50px 56px;
+}
+.rl-cta-box h3 {
+    color: #fff;
+    font-size: clamp(20px, 2.5vw, 28px);
+    font-weight: 700; margin-bottom: 8px;
+}
+.rl-cta-box p { color: rgba(255,255,255,0.65); font-size: 15px; margin: 0; }
+.rl-cta-btn {
+    display: inline-flex; align-items: center;
+    background: #4f83d1; color: #fff;
+    padding: 15px 32px; border-radius: 50px;
+    font-size: 15px; font-weight: 600;
+    text-decoration: none; white-space: nowrap;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 6px 20px rgba(79,131,209,0.4);
+}
+.rl-cta-btn:hover {
+    background: #7cb8eb; color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(79,131,209,0.5);
+}
+
+/* =======================================
+   RESPONSIVE
+======================================= */
+@media (max-width: 991px) {
+    .rl-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .rl-cta-box { padding: 36px 28px; }
+    .rl-stat-sep { display: none; }
+    .rl-stats-row { gap: 20px; }
+}
+@media (max-width: 767px) {
+    .rl-grid { grid-template-columns: 1fr; gap: 18px; }
+    .rl-intro-section { padding: 50px 0 40px; }
+    .rl-gallery-section { padding: 44px 0 60px; }
+    .rl-cta-box { padding: 28px 20px; }
+    .rl-cta-btn { width: 100%; justify-content: center; }
+    /* Sur mobile, overlay toujours visible à 60% */
+    .rl-card-overlay { opacity: 0.6; transform: translateY(0); }
+    .rl-card.revealed .rl-card-overlay { opacity: 1; }
+}
