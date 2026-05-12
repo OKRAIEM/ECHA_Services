@@ -10,7 +10,7 @@
    BANNER — contact.html uniquement
 ======================================= */
 .banner-section {
-    background-image: url('/ImagesPNS/Banner2.jfif');
+    background-image: url('../ImagesPNS/Banner2.jfif');
     background-repeat: no-repeat;
     background-position: center 20%;
     background-size: cover;

@@ -1414,7 +1414,7 @@ strong {
   BANNER (autres pages)
 -----------------------------------------*/
 .banner-section {
-  background-image: url('/ImagesPNS/Banner2.jfif');
+  background-image: url('../ImagesPNS/Banner2.jfif');
   background-repeat: no-repeat;
   /* On force l'image à se caler sur le haut ou le centre pour voir les structures */
   background-position: center 20%; 
