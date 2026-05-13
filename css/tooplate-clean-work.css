@@ -182,7 +182,8 @@ strong {
   color: #e5e50f;
   display: block;
   position: absolute;
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-word;
   width: 100%;
   left: 0;
   top: 0;
@@ -733,6 +734,7 @@ strong {
   border-radius: var(--border-radius-small);
   padding: 35px;
   background: #fff;
+  text-align: justify;
 }
 
 .intro-box-right {
@@ -1663,6 +1665,24 @@ strong {
     width: 80%;
     margin: 10px auto !important;
     text-align: center;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .cd-headline {
+    font-size: clamp(28px, 8vw, 42px) !important;
+  }
+  .cd-words-wrapper {
+    min-height: 2.4em;
+  }
+  .cd-words-wrapper b {
+    font-size: clamp(28px, 8vw, 42px);
+    line-height: 1.2;
+  }
+  .hero-section {
+    padding-top: 80px;
+    padding-bottom: 60px;
+    min-height: auto;
   }
 }
 
