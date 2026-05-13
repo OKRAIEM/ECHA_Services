@@ -182,8 +182,7 @@ strong {
   color: #e5e50f;
   display: block;
   position: absolute;
-  white-space: normal;
-  word-break: break-word;
+  white-space: nowrap;
   width: 100%;
   left: 0;
   top: 0;
@@ -194,6 +193,8 @@ strong {
   position: relative;
   display: block;
   text-align: center;
+  white-space: normal;
+  word-break: keep-all;
 }
 
 .no-js .cd-words-wrapper b {
@@ -1670,19 +1671,37 @@ strong {
 
 @media screen and (max-width: 576px) {
   .cd-headline {
-    font-size: clamp(28px, 8vw, 42px) !important;
+    font-size: clamp(22px, 7vw, 36px) !important;
+    overflow: hidden;
   }
   .cd-words-wrapper {
-    min-height: 2.4em;
+    min-height: 2em;
+    overflow: hidden;
   }
   .cd-words-wrapper b {
-    font-size: clamp(28px, 8vw, 42px);
+    font-size: clamp(22px, 7vw, 36px) !important;
+    white-space: normal !important;
+    word-break: break-word !important;
     line-height: 1.2;
+    max-width: 100%;
+  }
+  .cd-words-wrapper b.is-visible {
+    white-space: normal !important;
+    word-break: break-word !important;
+    max-width: 100%;
+    overflow: hidden;
   }
   .hero-section {
     padding-top: 80px;
     padding-bottom: 60px;
     min-height: auto;
+    overflow: hidden;
+  }
+  .hero-section .container {
+    overflow: hidden;
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
 
